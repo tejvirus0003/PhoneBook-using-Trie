@@ -23,6 +23,8 @@ class Trie():
         else:
             temp.numbers.append(number)
         temp.numbers = list(set(temp.numbers))
+        print('{name} person with phone number {number} is added'.format(
+            name=name, number=number))
 
     def find(self, name):
         temp = self.head
@@ -46,7 +48,7 @@ class Trie():
         result = self.find(prevname)
         if result is False:
             print('Sorry such name doesnot exist , you can instead make new contact')
-            response = input('Do you want to make new contact ? (Y,y) OR NO')
+            response = input('Do you want to make new contact ? (Y,y) OR NO : ')
             if response == 'Y' or response == 'y':
                 numb = input('Enter the number plz ')
                 self.insert(newname, numb)
@@ -63,6 +65,7 @@ class Trie():
             return
         res.isend = False
         res.numbers.clear()
+        print('Person {0} is deleted'.format(name))
 
     def dfs(self, temp, s):
         if temp.isend is True:
